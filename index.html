@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza House</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <template id="pizza__card">       
+        <div class="card__image-wrap">
+            <img class="card__img" src="img/{{picture}}.webp" alt="">
+            <ul class="ingridients">
+                {{#ingridients}}
+                <li class="ingr__item">{{.}}</li>
+                {{/ingridients}}
+            </ul>
+        </div>
+        <h4 class="card__head">{{name}}</h4>
+        <ul class="chose">
+            {{#size}}                
+            <li class="diameter">{{d}}см</li>
+            {{/size}}
+        </ul>
+        <div class="weight"></div>
+
+        <div class="rating">
+            <div class="rating__body">
+                <div class="rating__status"></div>
+                <div class="rating__items">
+                    <input type="radio" class="rating__item" name="pizza" value="1">
+                    <input type="radio" class="rating__item" name="pizza" value="2">
+                    <input type="radio" class="rating__item" name="pizza" value="3">
+                    <input type="radio" class="rating__item" name="pizza" value="4">
+                    <input type="radio" class="rating__item" name="pizza" value="5">                    
+                </div>                    
+            </div>
+            <p class="rating__value"></p>
+        </div>
+        <div class="price"></div>
+        <button class="buy">Замовити</button>       
+    </template>
+
+
+    <template id="mini-card">        
+        <div class="market__img foto">
+            <img class="card__img" src="img/{{picture}}.webp" alt="">
+        </div>
+        <h4 class="market__name">{{name}}</h4>
+        <div class="counter">
+            <button class="counter__button minus">-</button>
+            <input class="counter__inp" type="number">
+            <button class="counter__button plus">+</button>
+        </div>
+        <div class="diameter"></div>
+        <div class="order__delete close"></div>
+        <div class="order__price price"></div>        
+    </template>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------ -->
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo">
+                <a href="#"><img class="logo" src="icons/logo.png" alt=""></a>
+            </div>
+            <ul class="header__list">
+                <li class="header__list-item--first">Мы работаем</li>
+                <li class="header__list-item">с 10:00 до 21:00</li>                
+            </ul>
+            <ul class="header__list">
+                <li class="header__list-item--first">Телефоны</li>
+                <li class="header__list-item"><a href="tel:+380960612893">+38-093-061-28-93</a></li>
+                <li class="header__list-item"><a href="tel:+380960612893">+38-096-061-28-93</a></li>
+                <li class="header__list-item"><a href="tel:+380960612893">+38-050-061-28-93</a></li>
+            </ul>
+            
+            <ul class="header__list">
+                <li class="header__list-item--first">Наш адрес</li>
+                <li class="header__list-item">г. Харьков <br> ул. Академика Павлова 303</li>                
+            </ul>
+            <div class="wrap">
+                <div class="basket__counter"></div>
+                <svg class="basket">
+                    <use xlink:href="icons/basket2.svg#basket"></use>>                
+                </svg>  
+            </div>
+        </div>       
+    </header>
+
+    <main class="main">
+        <div class="container pizza__list"></div>        
+
+        <div class="market">      
+            <h3 class="market__head">Кошик</h3>
+            <p class="market__empty">Кошик поки що порожній</p>   
+            <div class="close"></div> 
+            <div class="scroll"></div>
+            <div class="market__price" style="display:none">
+                <p class="total price"></p>
+                <button class="send buy market__buy">Сплатити</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="mustache.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>
