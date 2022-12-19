@@ -251,8 +251,6 @@ close.addEventListener('click', ()=>{
 
 basket.addEventListener('click', ()=>{
     market.style.right =0 +'px'
-
-
 })
 
 dataServise.fromLS()
